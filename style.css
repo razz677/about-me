@@ -1,0 +1,250 @@
+/*
+=====================================================================
+  CS 101 ACTIVITY: BUILD YOUR OWN "ABOUT ME" WEB PAGE
+  File 2 of 2: style.css  (the LOOK and LAYOUT of your page)
+=====================================================================
+
+HOW CSS WORKS
+  A CSS rule has three parts:
+
+      selector {
+        property: value;
+      }
+
+  - selector : WHICH HTML element to style (for example body, h1, nav a)
+  - property : WHAT you want to change (for example color, font-size)
+  - value    : HOW you want to change it (for example blue, 20px)
+
+  Every declaration ends with a semicolon ( ; ).
+  A CSS comment starts with a slash followed by an asterisk, and ends
+  with an asterisk followed by a slash (like this big note you are reading).
+
+HOW TO USE THIS FILE
+  1. Work through the STEPS below, from top to bottom.
+  2. In each step there is an example inside a comment. To use it,
+     copy it BELOW the comment, then change the values to match your taste.
+     (Or remove the comment markers.) Experiment: change a value, save,
+     refresh your browser, and see what happens.
+  3. You need at least 5 different style rules for full points, and one
+     of them must use Flexbox (Step 4). Doing every step gives you more
+     than enough.
+
+TIPS
+  - Press F12 in your browser to open the developer tools. Right-click any
+    part of your page and choose "Inspect" to see which CSS applies to it.
+  - If a style does not work, check for: a missing semicolon, a missing
+    closing brace }, or a misspelled property.
+  - Colors can be written as names (steelblue), hex codes (#4682b4), or
+    rgb(70, 130, 180). Try a free color picker online to find hex codes.
+
+CHECKLIST
+  [ ] Step 1: body (font, color, background)
+  [ ] Step 2: headings (color, size, alignment)
+  [ ] Step 3: box model (padding, margin, border)
+  [ ] Step 4: Flexbox navigation menu
+  [ ] Step 5: table styling
+  [ ] Step 6: image and link styling
+*/
+
+
+/* ---------------------------------------------------------------
+   STEP 1: STYLE THE WHOLE PAGE (the body selector)
+   Anything you set on body is inherited by most elements inside it.
+
+   Properties to know:
+     font-family      : the typeface. List backups after the commas.
+     font-size        : size of the text (16px is the browser default).
+     line-height      : space between lines. 1.5 is easier to read.
+     color            : the TEXT color.
+     background-color : the background color.
+
+   Example (copy it, then change the values):
+
+   body {
+     font-family: Arial, Helvetica, sans-serif;
+     font-size: 16px;
+     line-height: 1.5;
+     color: #222222;
+     background-color: #f4f4f4;
+   }
+   --------------------------------------------------------------- */
+
+
+
+/* ---------------------------------------------------------------
+   STEP 2: STYLE THE HEADINGS AND TEXT
+   You can give the same style to several selectors by separating
+   them with commas.
+
+   Properties to know:
+     text-align : left, center, or right.
+     font-weight: normal or bold.
+
+   Example:
+
+   h1 {
+     color: #1a3c6e;
+     font-size: 2.5rem;
+     text-align: center;
+   }
+
+   h2, h3 {
+     color: #1a3c6e;
+   }
+
+   header {
+     background-color: #1a3c6e;
+     color: white;
+     text-align: center;
+   }
+   --------------------------------------------------------------- */
+
+
+
+/* ---------------------------------------------------------------
+   STEP 3: THE BOX MODEL (spacing around elements)
+   Every HTML element is a box made of four layers, from inside out:
+
+       content > padding > border > margin
+
+   Properties to know:
+     padding : space INSIDE the box, between the content and the border.
+     border  : the line around the box. Shorthand: width style color.
+     margin  : space OUTSIDE the box, pushing other elements away.
+     max-width + margin: 0 auto : centers a block on the page.
+
+   Example: give each section its own "card" look.
+
+   section {
+     background-color: white;
+     padding: 20px;
+     margin: 20px auto;
+     max-width: 800px;
+     border: 1px solid #cccccc;
+     border-radius: 8px;
+   }
+
+   header, footer {
+     padding: 20px;
+   }
+   --------------------------------------------------------------- */
+
+
+
+/* ---------------------------------------------------------------
+   STEP 4: FLEXBOX (REQUIRED: arrange part of your page)
+   Flexbox arranges the children of a container in a row or column.
+   You turn it on by setting display: flex on the PARENT (container).
+
+   Properties to know (set on the container):
+     display: flex            : turns on Flexbox. Children line up in a row.
+     justify-content          : spacing along the main axis (the row).
+                                Try: flex-start, center, space-between,
+                                space-around, flex-end.
+     align-items              : alignment along the cross axis (up/down).
+                                Try: center, flex-start, stretch.
+     gap                      : space between the children.
+     flex-wrap: wrap          : lets items drop to the next line on small screens.
+
+   Your nav menu is a <ul> with <li> items inside it. The <ul> is the
+   container, so you apply display: flex to "nav ul".
+
+   Example: turn the list into a horizontal menu.
+
+   nav ul {
+     display: flex;
+     justify-content: center;
+     gap: 20px;
+     list-style: none;
+     padding: 0;
+   }
+
+   nav a {
+     color: white;
+     text-decoration: none;
+   }
+
+   nav a:hover {
+     text-decoration: underline;
+   }
+
+   Challenge (optional): also use Flexbox to put your image and your
+   paragraph side by side inside the About Me section.
+   --------------------------------------------------------------- */
+
+
+
+/* ---------------------------------------------------------------
+   STEP 5: STYLE THE TABLE
+   Properties to know:
+     border-collapse: collapse : merges the double borders into single lines.
+     width: 100%               : makes the table fill its container.
+     th, td                    : style header and data cells together.
+     tr:nth-child(even)        : selects every second row (zebra stripes).
+
+   Example:
+
+   table {
+     border-collapse: collapse;
+     width: 100%;
+   }
+
+   th, td {
+     border: 1px solid #cccccc;
+     padding: 10px;
+     text-align: left;
+   }
+
+   th {
+     background-color: #1a3c6e;
+     color: white;
+   }
+
+   tr:nth-child(even) {
+     background-color: #f0f4fa;
+   }
+   --------------------------------------------------------------- */
+
+
+
+/* ---------------------------------------------------------------
+   STEP 6: STYLE IMAGES AND LINKS
+   Properties to know:
+     border-radius: 50%        : makes a square image into a circle.
+     max-width: 100%           : keeps images from overflowing small screens.
+     :hover                    : a style that applies when the mouse is over it.
+     text-decoration           : none, underline.
+
+   Example:
+
+   img {
+     border-radius: 50%;
+     max-width: 100%;
+   }
+
+   a {
+     color: #1a3c6e;
+   }
+
+   a:hover {
+     color: #c0392b;
+   }
+
+   footer {
+     text-align: center;
+     font-size: 0.9rem;
+   }
+   --------------------------------------------------------------- */
+
+
+
+/* ---------------------------------------------------------------
+   YOUR TURN: ADD YOUR OWN RULES BELOW
+   Make the page feel like YOU. Ideas to try:
+     - A different font (Georgia, "Trebuchet MS", "Courier New")
+     - A color scheme based on something you like
+     - Bigger spacing between sections
+     - A different background for the header
+     - A hover effect on the list items
+   --------------------------------------------------------------- */
+

@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<!--
+=====================================================================
+  CS 101 ACTIVITY: BUILD YOUR OWN "ABOUT ME" WEB PAGE
+  File 1 of 2: index.html  (the STRUCTURE and CONTENT of your page)
+=====================================================================
+
+HOW TO USE THIS TEMPLATE
+  1. Open this file in VS Code (or Notepad).
+  2. Look for the notes that say  TODO  . Each one tells you what to
+     change or add. Replace the sample text with YOUR OWN information.
+  3. Save the file, then open it in your browser (double-click the file,
+     or right-click > Open with > Chrome). Refresh the browser (F5)
+     every time you save to see your changes.
+  4. When you finish the HTML, open style.css and follow the steps there.
+  5. Before submitting, DELETE the instruction comments you no longer need,
+     but KEEP at least 3 comments of your own that explain your code
+     (look for "YOUR COMMENT" below).
+
+REMINDER: An HTML comment starts with a less-than sign, an exclamation
+          mark, and two dashes, and ends with two dashes and a
+          greater-than sign (see the examples all over this file).
+          The browser ignores comments. They are notes for humans.
+
+CHECKLIST (matches the grading rubric)
+  [ ] Proper document structure (DOCTYPE, html, head, body)
+  [ ] Semantic tags: header, nav, main, footer
+  [ ] One h1 and at least two h2 headings
+  [ ] At least one paragraph about yourself
+  [ ] At least one image
+  [ ] At least one list
+  [ ] A table (for example, your class schedule)
+  [ ] At least one link to a website you like
+  [ ] style.css is linked and has at least 5 different style rules
+  [ ] Flexbox is used to arrange part of the page
+  [ ] At least 3 comments of your own explaining your code
+  [ ] Reflection written (reflection.txt)
+-->
+
+<!--
+  <!DOCTYPE html>  (above)
+  Tells the browser this is an HTML5 document. Always the first line.
+
+  <html lang="en">
+  The root element. Everything on the page goes inside it.
+  The lang attribute says what language the page is written in.
+  TODO: Change "en" to "fil" if you will write the page in Filipino.
+-->
+<html lang="en">
+
+<!--
+  <head> holds information ABOUT the page. It is NOT shown on the page itself.
+-->
+<head>
+  <!--
+    <meta charset="UTF-8">
+    Lets the page show special characters correctly (such as ñ).
+  -->
+  <meta charset="UTF-8">
+
+  <!--
+    <meta name="viewport" ...>
+    Makes the page display properly on phones and small screens.
+  -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--
+    GOOGLE FONTS
+    Poppins = headings (name, section titles)
+    Inter   = body text (paragraphs, table, menu)
+    The page needs internet access the first time it loads to get these.
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!--
+    <title>
+    The text shown on the browser tab.
+    TODO: Replace with your own title, for example "Juan's About Me Page".
+  -->
+  <title>Razzel Atuli  |  About Me</title>
+
+  <!--
+  <link rel="stylesheet" href="style1.css">
+    Connects this HTML file to your CSS file. Without this line,
+    your styles will NOT work.
+    Note: href must match your CSS file's name exactly: style.css
+  -->
+  <link rel="stylesheet" href="style1.css?v=15">
+</head>
+
+<!--
+  <body> holds everything that is VISIBLE on the page.
+-->
+<body>
+
+  <!-- ===============================================================
+       DECORATIVE BACKGROUND BLOBS
+       Two blurred gradient circles that float behind the page to
+       give the glassmorphism look some depth. Purely decorative.
+       ================================================================ -->
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <!-- ===============================================================
+       FIXED TOP BAR (NAVIGATION)
+       Stays pinned to the top of the screen while you scroll.
+       Holds the menu links, the theme toggle, and the hamburger
+       button (which only shows on small screens).
+       ================================================================ -->
+  <nav id="main-nav" class="topbar">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#hobbies">Hobbies</a></li>
+      <li><a href="#schedule">Schedule</a></li>
+      <li><a href="#favorites">Favorites</a></li>
+    </ul>
+
+    <div class="topbar-controls">
+      <!-- ---------------------------------------------------------------
+           THEME TOGGLE
+           Lives in the fixed bar, so it stays visible while you scroll.
+           ---------------------------------------------------------------- -->
+      <button class="theme-toggle" type="button" aria-label="Toggle dark mode">🌙</button>
+
+      <!-- ---------------------------------------------------------------
+           HAMBURGER BUTTON (opens/closes the menu with an animation)
+           Only visible on small screens; on wide screens the links
+           are always shown in the bar.
+           ---------------------------------------------------------------- -->
+      <button class="menu-toggle" type="button" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===============================================================
+       HEADER
+       <header> is a semantic tag for the top part of the page
+       (title, logo, introduction).
+       <h1> is the MAIN heading. Use only ONE h1 per page.
+       The name card scrolls away normally; the nav bar above stays.
+       ================================================================ -->
+  <header>
+    <div>
+      <!-- TODO: Replace with your name or a title for your page. -->
+      <h1>Razzel Atuli</h1>
+
+      <!-- TODO: Add a short tagline about you, for example "1st Year BSCS Student". -->
+      <p>1st Year BSCS Student</p>
+    </div>
+  </header>
+
+  <!-- ===============================================================
+       MAIN
+       <main> is a semantic tag for the main content of the page.
+       Use only one <main> per page.
+       <section> groups related content. The id attribute gives it a
+       unique name, which the nav links above jump to.
+       <h2> is a SUB-heading. Use h2 for each major section.
+       (Heading order: h1 > h2 > h3. Do not skip levels.)
+       ================================================================ -->
+  <main>
+
+    <!-- ------------- SECTION 1: ABOUT ME ------------- -->
+    <section id="about">
+      <h2>About Me</h2>
+
+      <div class="about-grid">
+        <!--
+          <img> shows an image. It has no closing tag.
+            src = where the image file is (the file path)
+            alt = text describing the image (for screen readers, and
+                  shown if the image fails to load). Never leave it empty.
+          TODO: Put your own photo (or any picture that represents you) in
+                the "images" folder, then change src to match your file name.
+                Example: src="images/juan.jpg"
+          TIP: Make sure the file name and extension match exactly.
+        -->
+        <img src="images/download.jpg" alt="Photo of Razzel Atuli" width="200">
+
+        <!--
+          <p> is a PARAGRAPH.
+          <strong> makes text bold (important). <em> makes text italic (emphasis).
+          TODO: Write 2 to 4 sentences about yourself: where you are from,
+                why you chose BSCS, what you hope to learn.
+        -->
+        <p>
+          Hello! My name is <strong>Razzel Atuli</strong>. I am a first-year BSCS
+          student at Bicol University. I am from Mariawa, Legazpi City. I chose BSCS because
+          of the influence in social media it's not really my first choice but I really enjoy 
+          Computer Science right now. I hope to learn more about programming and web development 
+          in the future.
+        </p>
+      </div>
+
+      <!-- YOUR COMMENT 1: Write a comment here explaining the <img> tag above in your own words. -->
+    </section>
+
+    <!-- ------------- SECTION 2: HOBBIES AND GOALS ------------- -->
+    <section id="hobbies">
+      <h2>My Hobbies and Goals</h2>
+
+      <!--
+        <ul> = UNORDERED list (bullets), used when order does not matter.
+        <ol> = ORDERED list (1, 2, 3), used when order matters.
+        <li> = one item in either kind of list.
+        TODO: Replace the sample items with your own hobbies.
+      -->
+      <h3>Hobbies</h3>
+      <ul class="chip-list">
+        <li>Reading manga/manhwa</li>
+        <li>Playing video games</li>
+        <li>Listening to music</li>
+      </ul>
+
+      <!--
+        This is an ordered list. TODO: List your top 3 goals in order of importance.
+      -->
+      <h3>My Top 3 Goals</h3>
+      <ol class="goal-list">
+        <li>Finish my degree</li>
+        <li>Be a successful software developer</li>
+        <li>Live life to the fullest</li>
+      </ol>
+    </section>
+
+    <!-- ------------- SECTION 3: CLASS SCHEDULE (TABLE) ------------- -->
+    <section id="schedule">
+      <h2>My Class Schedule</h2>
+
+      <!--
+        TABLE TAGS
+          <table>   the whole table
+          <thead>   the header part (column titles)
+          <tbody>   the body part (the data rows)
+          <tr>      one table ROW
+          <th>      a header CELL (bold and centered by default)
+          <td>      a regular data CELL
+        Each <tr> must have the same number of cells as the other rows.
+        TODO: Replace the sample rows with your real subjects. Add more rows
+              by copying one whole <tr>...</tr> block and pasting it below it.
+      -->
+      <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Subject</th>
+            <th>Day</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CS 101: Introduction to Computing</td>
+            <td>Wednesday</td>
+            <td>9:00 AM - 12:00 PM</td>
+          </tr>
+          <tr>
+            <td>CS 102: Computer Programming</td>
+            <td>Monday,Wednesday</td>
+            <td>4:00 PM - 7:00 PM</td>
+          </tr>
+          <tr>
+            <td>Phys 1: Physics for Computing</td>
+            <td>Tuesday, Thursday</td>
+            <td>1:00 PM - 2:30 PM</td>
+          </tr>
+          <tr>
+            <td>Math 101:Mathematical Analysis</td>
+            <td>Tuesday, Thursday, Friday</td>
+            <td>2:30 PM - 4:00 PM, 1:00 PM - 3:00 PM</td>
+          </tr>
+          <tr>
+            <td>GEC 11: Understanding the Self</td>
+            <td>Friday</td>
+            <td>9:00 AM - 12:00 PM</td>
+          </tr>
+          <tr>
+            <td>PATHfit 1</td>
+            <td>Saturday</td>
+            <td>4:00 PM - 6:00 PM</td>
+          </tr>
+          <tr>
+            <td>NSTP: ROTC</td>
+            <td>Sunday</td>
+            <td>7:00 AM - 12:00 PM</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+      <!-- YOUR COMMENT 2: Write a comment here explaining what <tr>, <th>, and <td> mean. -->
+    </section>
+
+    <!-- ------------- SECTION 4: FAVORITES (LINK) ------------- -->
+    <section id="favorites">
+      <h2>My Favorites</h2>
+
+      <!--
+        <a> is an ANCHOR, which creates a LINK.
+          href = where the link goes (the web address)
+          target="_blank" opens the link in a NEW tab
+          rel="noopener" is a safety setting that should go with target="_blank"
+        TODO: Replace with a website you like, and change the text between
+              the tags to describe it.
+      -->
+      <p>
+        One website I enjoy visiting is listed below because it has all the music I love in one place.
+      </p>
+
+      <p>
+        <a class="btn-link" href="https://spotify.com" target="_blank" rel="noopener">Spotify</a>
+      </p>
+
+      <!-- YOUR COMMENT 3: Write a comment here explaining what the href attribute does. -->
+    </section>
+
+  </main>
+
+  <!-- ===============================================================
+       FOOTER
+       <footer> is a semantic tag for the bottom of the page
+       (credits, contact info, copyright).
+       ================================================================ -->
+  <footer>
+    <!-- TODO: Replace with your name and the year. -->
+    <p>Made by Razzel Atuli for CS 101, Bicol University.</p>
+  </footer>
+
+  <!-- ---------------------------------------------------------------
+       SCRIPT (a little JavaScript)
+       1. The hamburger button toggles the "nav-open" class on the nav,
+          which slides the menu open or closed (the animation is in CSS).
+       2. The theme button toggles the "dark-mode" class on BOTH the
+          <html> and <body> tags (so the page backdrop matches too),
+          and swaps the moon/sun emoji with a fade + spin.
+        3. Clicking a nav link closes the mobile menu, lights up the
+           target link, and glides to it: About goes to the very top
+           (so the title shows too); the other sections land centered
+           in the viewport. The scrollspy is frozen during the glide,
+           so no other button flashes on the way past.
+       4. Each card fades up when it scrolls into view, and its
+          contents stagger in one after another (IntersectionObserver).
+       5. Scrollspy: whichever section is on screen lights up its
+          link in the fixed nav bar.
+        6. Parallax: the two background blobs drift slowly as you
+           scroll (they drop their blur filter on mobile, so this
+           stays smooth everywhere).
+       ---------------------------------------------------------------- -->
+  <script>
+    const menuButton = document.querySelector('.menu-toggle');
+    const mainNav = document.getElementById('main-nav');
+    const themeButton = document.querySelector('.theme-toggle');
+
+    menuButton.addEventListener('click', () => {
+      mainNav.classList.toggle('nav-open');
+      menuButton.classList.toggle('open');
+    });
+
+    themeButton.addEventListener('click', () => {
+      // Toggle on <html> (backdrop color) and <body> (all the styles).
+      document.documentElement.classList.toggle('dark-mode');
+      document.body.classList.toggle('dark-mode');
+
+      // Spin animation: remove the class, force a reflow so the
+      // browser "forgets" the animation, then add it back to
+      // restart the spin from the beginning.
+      themeButton.classList.remove('spinning');
+      void themeButton.offsetWidth;
+      themeButton.classList.add('spinning');
+
+      // Emoji swap: fade the button out, change moon <-> sun while
+      // it is invisible, then fade it back in.
+      themeButton.classList.add('fading');
+      setTimeout(() => {
+        themeButton.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+        themeButton.classList.remove('fading');
+      }, 250);
+    });
+
+    // Clean up the spin class when the animation finishes so it
+    // can run again on the next click.
+    themeButton.addEventListener('animationend', () => {
+      themeButton.classList.remove('spinning');
+    });
+
+    // Clicking a nav link: close the mobile menu, and light the
+    // link up right away. While the page glides to the target,
+    // navScrolling freezes the scrollspy so the sections you pass
+    // over do NOT flash their buttons — only the clicked one stays
+    // lit until you arrive (or you take over by scrolling).
+    const navLinks = document.querySelectorAll('nav a');
+    let navScrolling = false;
+    let navIdleTimer = null;
+
+    // A glide is "settled" once scrollY stops changing for ~150ms.
+    // The 3s cap guarantees the freeze can never get stuck on.
+    const releaseNavScroll = () => {
+      clearTimeout(navIdleTimer);
+      const startedAt = Date.now();
+      const watch = () => {
+        const y = window.scrollY;
+        navIdleTimer = setTimeout(() => {
+          if (window.scrollY === y || Date.now() - startedAt > 3000) {
+            navScrolling = false;
+            syncActiveLink();
+          } else {
+            watch(); // still moving — keep watching
+          }
+        }, 150);
+      };
+      watch();
+    };
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', (event) => {
+        mainNav.classList.remove('nav-open');
+        menuButton.classList.remove('open');
+
+        navLinks.forEach(other => other.classList.remove('active'));
+        link.classList.add('active');
+
+        const href = link.getAttribute('href');
+        if (!href.startsWith('#')) return;
+        event.preventDefault();
+        // Guarded: the History API can refuse on file:// pages.
+        try { history.replaceState(null, '', href); } catch (err) { /* ignore */ }
+
+        // Freeze the scrollspy for the whole glide.
+        navScrolling = true;
+        releaseNavScroll();
+
+        // About goes back to the very top, so you see the title AND About.
+        if (href === '#about') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          return;
+        }
+
+        // The other sections land CENTERED in the viewport.
+        const target = document.querySelector(href);
+        if (!target) return;
+        const rect = target.getBoundingClientRect();
+        let top;
+        if (rect.height <= window.innerHeight - 76) {
+          // Fits on screen: put its middle at the middle of the viewport.
+          top = window.scrollY + rect.top - (window.innerHeight - rect.height) / 2;
+        } else {
+          // Taller than the screen: align its top just under the nav bar.
+          top = window.scrollY + rect.top - 76;
+        }
+        window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+      });
+    });
+
+    // Fade-up animation: each section starts hidden (.reveal)
+    // and becomes visible when it enters the viewport.
+    document.querySelectorAll('section').forEach(section => {
+      section.classList.add('reveal');
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target); // only animate once
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+
+    // Scrollspy: light up the nav link of whichever section is
+    // currently on screen.
+    const sections = document.querySelectorAll('section');
+    const linkById = {};
+    navLinks.forEach(link => {
+      const id = link.getAttribute('href').slice(1); // "#about" -> "about"
+      linkById[id] = link;
+    });
+
+    const spy = new IntersectionObserver((entries) => {
+      if (navScrolling) return; // frozen during a nav glide
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => link.classList.remove('active'));
+          const link = linkById[entry.target.id];
+          if (link) link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-40% 0px -50% 0px' }); // near the middle of the screen
+
+    sections.forEach(section => spy.observe(section));
+
+    // Lights the link of whatever section is crossing the middle of
+    // the screen right now. Called when a glide ends or is interrupted,
+    // so the highlight always matches where you actually landed.
+    const syncActiveLink = () => {
+      const mid = window.innerHeight * 0.45;
+      let currentId = '';
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= mid && rect.bottom >= mid) currentId = section.id;
+      });
+      if (!currentId || !linkById[currentId]) return;
+      navLinks.forEach(link => link.classList.remove('active'));
+      linkById[currentId].classList.add('active');
+    };
+
+    // Fast path: browsers with the scrollend event unfreeze the
+    // scrollspy the moment the glide stops.
+    window.addEventListener('scrollend', () => {
+      if (navScrolling) {
+        navScrolling = false;
+        syncActiveLink();
+      }
+    });
+
+    // If you interrupt the glide yourself (wheel / touch / keys),
+    // hand control straight back to the scrollspy.
+    ['wheel', 'touchstart', 'keydown'].forEach((type) => {
+      window.addEventListener(type, () => {
+        navScrolling = false;
+      }, { passive: true });
+    });
+
+    // Parallax blobs: they drift slightly in opposite directions
+    // as the page scrolls, giving a sense of depth. Cheap on mobile
+    // too — the blobs lose their blur filter there (CSS), so this
+    // never triggers a repaint.
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          document.documentElement.style.setProperty('--scroll-y', window.scrollY);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+  </script>
+
+</body>
+</html>
